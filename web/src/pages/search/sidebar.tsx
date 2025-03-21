@@ -20,12 +20,14 @@ interface IProps {
   isFirstRender: boolean;
   checkedList: string[];
   setCheckedList: Dispatch<SetStateAction<string[]>>;
+  style?: Record<string, string>;
 }
 
 const SearchSidebar = ({
   isFirstRender,
   checkedList,
   setCheckedList,
+  style,
 }: IProps) => {
   const { list, loading } = useFetchKnowledgeList();
 
@@ -139,6 +141,7 @@ const SearchSidebar = ({
       })}
       theme={'light'}
       width={'20%'}
+      style={Object.assign({}, style)}
     >
       <Spin spinning={loading}>
         <Tree

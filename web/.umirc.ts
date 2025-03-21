@@ -35,16 +35,23 @@ export default defineConfig({
     { from: 'src/conf.json', to: 'dist/conf.json' },
     { from: 'node_modules/monaco-editor/min/vs/', to: 'dist/vs/' },
   ],
-  proxy: [
-    {
-      context: ['/api', '/v1'],
-      target: 'http://127.0.0.1:9380/',
+  // proxy: [
+  //   {
+  //     context: ['/api', '/v1'],
+  //     target: 'http://127.0.0.1:9380/',
+  //     changeOrigin: true,
+  //     ws: true,
+  //     logger: console,
+  //     // pathRewrite: { '^/v1': '/v1' },
+  //   },
+  // ],
+  proxy: {
+    '/v1': {
+      target: 'https://demo.ragflow.io/',
+      secure: false,
       changeOrigin: true,
-      ws: true,
-      logger: console,
-      // pathRewrite: { '^/v1': '/v1' },
     },
-  ],
+  },
 
   chainWebpack(memo, args) {
     memo.module.rule('markdown').test(/\.md$/).type('asset/source');

@@ -59,5 +59,9 @@ export default storage;
 
 // Will not jump to the login page
 export function redirectToLogin() {
+  if (/\/m\//.test(window.location.pathname)) {
+    window.location.href = location.origin + `/m/login`;
+    return;
+  }
   window.location.href = location.origin + `/login`;
 }

@@ -1,0 +1,135 @@
+.pageWrapper {
+  height: 100%;
+
+  .pageHeader {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    .pageTitle {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+  }
+}
+
+.searchPage {
+  background-position: center;
+  background-size: cover;
+
+  .card {
+    width: 100%;
+
+    :global(.ant-card-body) {
+      padding: 14px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .tag {
+    padding: 4px 8px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
+
+.firstRenderContent {
+  height: 100%;
+}
+
+.content {
+  height: 100%;
+  overflow: auto;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 10px;
+
+  .hide {
+    display: none;
+  }
+
+  .main {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .highlightContent {
+    .multipleLineEllipsis(2);
+
+    em {
+      color: red;
+      font-style: normal;
+    }
+  }
+
+  .documentReference {
+    cursor: pointer;
+  }
+
+  .pagination {
+    padding-bottom: 16px;
+  }
+}
+
+.answerWrapper {
+  margin-top: 16px;
+  background: rgba(232 242 251, 1);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+
+  :global(.ant-card-head) {
+    background-color: #e6f4ff23;
+  }
+
+  & p {
+    margin: 0;
+  }
+}
+
+.input() {
+  :global(.ant-input-affix-wrapper) {
+    padding: 4px 12px;
+    border-start-start-radius: 30px !important;
+    border-end-start-radius: 30px !important;
+  }
+
+  // :global(.ant-input-group-addon) {
+  //   background-color: transparent;
+  // }
+  input {
+    height: 40px;
+  }
+
+  button {
+    height: 50px !important;
+    border-start-end-radius: 30px !important;
+    border-end-end-radius: 30px !important;
+  }
+}
+
+.globalInput {
+  width: 100%;
+  position: sticky;
+  top: 30%;
+  z-index: 1;
+  .input();
+}
+
+.partialInput {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  .input();
+}

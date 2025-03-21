@@ -35,6 +35,22 @@ const routes = [
     layout: false,
   },
   {
+    path: '/m/login',
+    component: '@/pages/login-mobile',
+    layout: false,
+  },
+  {
+    path: '/m/search',
+    component: '@/pages/search-mobile',
+    layout: false,
+    wrappers: ['@/wrappers/auth'],
+  },
+  {
+    path: '/m',
+    layout: false,
+    redirect: '/m/search',
+  },
+  {
     path: '/chat/share',
     component: '@/pages/chat/share',
     layout: false,

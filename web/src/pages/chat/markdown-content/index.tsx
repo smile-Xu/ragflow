@@ -33,12 +33,14 @@ const getChunkIndex = (match: string) => Number(match.slice(2, -2));
 // TODO: The display of the table is inconsistent with the display previously placed in the MessageItem.
 const MarkdownContent = ({
   reference,
+  showReference,
   clickDocumentButton,
   content,
 }: {
   content: string;
   loading: boolean;
   reference: IReference;
+  showReference?: boolean;
   clickDocumentButton?: (documentId: string, chunk: IReferenceChunk) => void;
 }) => {
   const { t } = useTranslation();
@@ -174,6 +176,9 @@ const MarkdownContent = ({
   const renderReference = useCallback(
     (text: string) => {
       let replacedText = reactStringReplace(text, reg, (match, i) => {
+        if (typeof showReference === 'boolean' && !showReference) {
+          return <></>;
+        }
         const chunkIndex = getChunkIndex(match);
         return (
           <Popover content={getPopoverContent(chunkIndex)} key={i}>
